@@ -88,13 +88,19 @@ export default function About() {
               Our Mission & Values
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 title: "Our Mission",
-                desc: "To eradicate viral hepatitis through massive awareness, accessible testing, and life-saving care, ensuring every African knows their status.",
+                desc: "To stop the spread of hepatitis through awareness, testing, vaccination, and care.",
                 icon: Target,
                 color: "bg-brand-red/10 text-brand-red"
+              },
+              {
+                title: "Our Vision",
+                desc: "A Hepatitis-Free Africa where everyone knows their status and live healthy.",
+                icon: CheckCircle2,
+                color: "bg-brand-green/10 text-brand-green"
               },
               {
                 title: "Integrity",

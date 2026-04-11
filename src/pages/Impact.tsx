@@ -32,19 +32,19 @@ export default function Impact() {
               {
                 title: "Rural Testing Drives",
                 desc: "Reaching underserved communities in Nasarawa State with free screening and diagnosis.",
-                image: "https://picsum.photos/seed/testing/600/400",
+                image: "https://i.imgur.com/uJyPJR5.jpeg",
                 tag: "Nasarawa"
               },
               {
                 title: "Nationwide Awareness",
                 desc: "Breaking the silence through media campaigns and community education programs.",
-                image: "https://picsum.photos/seed/awareness/600/400",
+                image: "https://i.imgur.com/cgHd073.jpeg",
                 tag: "Nationwide"
               },
               {
                 title: "Vaccination Programs",
                 desc: "Providing essential protection to those most at risk of contracting viral hepatitis.",
-                image: "https://picsum.photos/seed/vaccine/600/400",
+                image: "https://i.imgur.com/4BadJZq.jpeg",
                 tag: "Prevention"
               }
             ].map((item, i) => (
@@ -108,7 +108,7 @@ export default function Impact() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
-                  <p className="text-3xl font-bold text-brand-green mb-1">10k</p>
+                  <p className="text-3xl font-bold text-brand-green mb-1">10k+</p>
                   <p className="text-xs text-gray-400 uppercase tracking-widest">Reached</p>
                 </div>
                 <div className="bg-white/5 p-6 rounded-2xl backdrop-blur-sm border border-white/10">
