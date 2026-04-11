@@ -8,7 +8,8 @@ import {
   Linkedin, 
   Mail,
   Sun,
-  Moon
+  Moon,
+  ArrowUp
 } from 'lucide-react';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -19,6 +20,7 @@ const LOGO_URL = "https://i.imgur.com/Rv6dZ9C.png";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const location = useLocation();
 
@@ -43,6 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      setShowScrollTop(window.scrollY > 300);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -162,6 +165,44 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-grow">
         {children}
       </main>
+
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 z-50 p-3 bg-brand-green text-white rounded-full shadow-lg hover:bg-brand-green/90 transition-colors"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Strategic Partners Section */}
+      <section className="py-16 bg-white dark:bg-gray-950">
+        <div className="container mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-red">Strategic Partners</h1>
+          <div className="flex flex-wrap items-center justify-center gap-12">
+            {[
+              "https://i.imgur.com/PeycQkc.jpeg",
+              "https://i.imgur.com/QYdB6qw.png",
+              "https://i.imgur.com/oW9okuH.png"
+            ].map((logo, i) => (
+              <div key={i} className="h-32 w-64 flex items-center justify-center bg-white rounded-xl p-4 shadow-sm">
+                <img 
+                  src={logo} 
+                  alt="Partner Logo" 
+                  className="h-full w-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-brand-black text-white pt-16 pb-10">
